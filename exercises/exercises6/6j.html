@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Booleans & If-Statements</title>
+</head>
+
+<body>
+  <button onclick="
+    result = Math.random();
+    result < 0.5 ?
+    result = 'heads' :
+    result = 'tails';
+  ">Heads or Tails</button>
+  <br><br>
+  <button onclick="
+    result === 'heads' ?
+      alert(`You guessed it right! It's ${result}.`) :
+      alert(`You got it wrong... It's actually ${result}.`)
+  ">Guess Heads</button>
+  <button onclick="
+    result === 'tails' ?
+      alert(`You guessed it right! It's ${result}.`) :
+      alert(`You got it wrong... It's actually ${result}.`)
+  ">Guess Tails</button>
+
+  <script>
+    let randomNum;
+  </script>
+</body>
+
+</html>
