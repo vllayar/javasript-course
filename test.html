@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width initial-scale=1.0">
+  <title>Booleans</title>
+  <style>
+
+  </style>
+</head>
+
+<body>
+  <p>Rock Paper Scissors</p>
+
+  <button onclick="
+    userPick = 'rock';
+    computerPick = Math.random();
+    compare(userPick, computerPick);
+  ">Rock</button>
+  <button onclick="
+    userPick = 'paper'
+    computerPick = Math.random();
+    compare(userPick, computerPick);
+  ">Paper</button>
+  <button onclick="
+    userPick = 'scissors';
+    computerPick = Math.random();
+    compare(userPick, computerPick);
+  ">Scissors</button>
+
+  <script>
+    let userPick;
+    let computerPick;
+
+    function compare(userPick, computerPick) {
+      if (userPick === 'rock' && computerPick <= 1 / 3) {
+        alert(`You: rock\nCp: rock\nTie.`);
+      } else if (userPick === 'rock' && (computerPick > 1 / 3 && computerPick <= 2 / 3)) {
+        alert(`You: rock\nCp: paper\nYou lose...`);
+      } else if (userPick === 'rock' && computerPick > 2 / 3) {
+        alert(`You: rock\nCp: scissors\nYou win!`);
+      } else if (userPick === 'paper' && computerPick <= 1 / 3) {
+        alert(`You: paper\nCp: rock\nYou win!`);
+      } else if (userPick === 'paper' && (computerPick > 1 / 3 && computerPick <= 2 / 3)) {
+        alert(`You: paper\nCp: paper\nTie.`);
+      } else if (userPick === 'paper' && computerPick > 2 / 3) {
+        alert(`You: paper\nCp: scissors\nYou lose...`);
+      } else if (userPick === 'scissors' && computerPick <= 1 / 3) {
+        alert(`You: scissors\nCp: rock\nYou lose...`);
+      } else if (userPick === 'scissors' && (computerPick > 1 / 3 && computerPick <= 2 / 3)) {
+        alert(`You: scissors\nCp: paper\nYou win!`);
+      } else if (userPick === 'scissors' && computerPick > 2 / 3) {
+        alert(`You: scissors\nCp: scissors\nTie.`);
+      }
+    }
+  </script>
+</body>
+
+</html>

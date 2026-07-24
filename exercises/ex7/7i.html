@@ -1,0 +1,47 @@
+ <!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Functions</title>
+</head>
+
+<body>
+  <script>
+    console.log(convertLength(5, 'lbs', 'lbs'));
+    console.log(convertLength(1, 'kg', 'lbs'));
+    console.log(convertLength(1, 'miles', 'degrees'));
+    console.log(convertLength(1, 'miles', 'km'));
+    console.log(convertLength(1, 'km', 'feet'));
+    console.log(convertLength(1, 'miles', 'feet'));
+
+    function convertLength(length, from, to) {
+      if (from !== 'miles' && from !== 'km' && from !== 'feet') {
+        return `Invalid unit: ${from}`;
+      } else if (to !== 'miles' && to !== 'km' && to !== 'feet') {
+        return `Invalid unit: ${to}`;
+      }
+
+      if (from === 'miles' && to === 'km') {
+        return `${length * 1.6} ${to}`;
+      } else if (from === 'km' && to === 'miles') {
+        return `${length / 1.6} ${to}`;
+      } else if (from === 'km' && to === 'feet') {
+        return `${length * 3281} ${to}`;
+      } else if (from === 'miles' && to === 'feet') {
+        return `${length * 5280} ${to}`;
+      } else if (from === 'feet' && to === 'miles') {
+        return `${length / 5280} ${to}`;
+      } else if (from === 'feet' && to === 'km') {
+        return `${length / 3281} ${to}`;
+      } else if (from === to){
+        return `${length} ${from}`;
+      } else {
+        return `Invalid unit: ${from}`
+      }
+    }
+  </script>
+</body>
+
+</html>
