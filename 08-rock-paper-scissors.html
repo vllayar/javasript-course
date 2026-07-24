@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width initial-scale=1.0">
+  <title>Rock, Paper, Scissors</title>
+  <style>
+
+  </style>
+</head>
+
+<body>
+  <p>Rock Paper Scissors</p>
+
+  <button onclick="
+    userMove = 'rock';
+    computerMove = pickComputerMove();
+    compare(userMove, computerMove);
+    displayResult();
+  ">Rock</button>
+  <button onclick="
+    userMove = 'paper';
+    computerMove = pickComputerMove();
+    compare(userMove, computerMove);
+    displayResult();
+  ">Paper</button>
+  <button onclick="
+    userMove = 'scissors';
+    computerMove = pickComputerMove();
+    compare(userMove, computerMove);
+    displayResult();
+  ">Scissors</button>
+  <button onclick="
+    stats.wins = 0;
+    stats.losses = 0;
+    stats.ties = 0;
+    localStorage.removeItem('stats');
+    alert(`The score was reset.
+Wins: ${stats.wins}, Losses ${stats.losses}, Ties: ${stats.ties}`);
+  ">Reset Score</button>
+
+  <script>
+    let userMove;
+    let computerMove;
+    let result;
+    let stats = JSON.parse(localStorage.getItem('stats')) || {
+      wins: 0,
+      losses: 0,
+      ties: 0
+    }
+
+    /* 
+      if (!stats) {
+        stats = {
+          wins: 0,
+          losses: 0,
+          ties: 0
+        }
+      } 
+    */
+
+    function pickComputerMove() {
+      let move = Math.random();
+      move <= 1 / 3 ? move = 'rock'
+      : move > 1 / 3 && move <= 2 / 3 ? move = 'paper'
+      : move = 'scissors';
+      return move;
+    }
+
+    function compare(userMove,  computerMove) {
+      if (userMove === 'rock' &&  computerMove === 'rock') {
+        stats.ties++;
+        result = 'tie';
+      } else if (userMove === 'rock' && computerMove === 'paper') {
+        stats.losses++;
+        result = 'lose'
+      } else if (userMove === 'rock' && computerMove === 'scissors') {
+        stats.wins++;
+        result = 'win';
+      } else if (userMove === 'paper' &&  computerMove === 'rock') {
+        stats.wins++;
+        result = 'win';
+      } else if (userMove === 'paper' &&  computerMove === 'paper') {
+        stats.ties++;
+        result = 'tie';
+      } else if (userMove === 'paper' &&  computerMove === 'scissors') {
+        stats.losses++;
+        result = 'lose'
+      } else if (userMove === 'scissors' && computerMove === 'rock') {
+        stats.losses++;
+        result = 'lose';
+      } else if (userMove === 'scissors' &&   computerMove === 'paper') {
+        stats.wins++;
+        result = 'win';
+      } else if (userMove === 'scissors' && computerMove === 'scissors') {
+        stats.ties++;
+        result = 'tie';
+      }
+    }
+
+    function displayResult() {
+      result === 'win' ? alert(`You picked ${userMove}. Computer picked ${computerMove}. Tie.\nWins: ${stats.wins}, Losses: ${stats.losses}, Ties: ${stats.ties}`)
+      : result === 'lose' ? alert(`You picked ${userMove}. Computer picked ${computerMove}. You lose...\nWins: ${stats.wins}, Losses: ${stats.losses}, Ties: ${stats.ties}`)
+      : alert(`You picked ${userMove}. Computer picked ${computerMove}. Tie.\nWins: ${stats.wins}, Losses: ${stats.losses}, Ties: ${stats.ties}`)
+      localStorage.setItem('stats', JSON.stringify(stats));
+    }
+
+  </script>
+</body>
+
+</html>
