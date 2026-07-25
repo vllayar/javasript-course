@@ -14,13 +14,16 @@
   <button onclick="
     playGame('tails');
   ">Guess Tails</button>
+  <button onclick="
+    resetScore();
+  ">Reset Score</button>
 
   <script>
     let flipResult;
     let score = {
       wins: 0,
       losses: 0
-    }
+    };
 
     function playGame(playerGuess) {
       flipCoin();
