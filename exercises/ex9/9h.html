@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DOM</title>
+</head>
+
+<body>
+  <input class="input-bar" type="text" placeholder="Type something" onkeyup="
+    addText();
+  ">
+  <p class="text"></p>
+
+  <script>
+    function addText() {
+      document.querySelector('.text').innerHTML = document.querySelector('.input-bar').value;
+    }
+  </script>
+</body>
+
+</html>
