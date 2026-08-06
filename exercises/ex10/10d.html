@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HTML, CSS & JavaScript</title>
+  <style>
+    .gaming-button {
+      background-color: rgba(128, 128, 128, 0.15);
+      font-weight: bold;
+      border: none;
+      padding: 10px 14px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .gaming-button-on {
+      background-color: rgba(0, 0, 0, 0.835);
+      color: white;
+      font-weight: bold;
+      border: none;
+      padding: 10px 14px;
+      border-radius: 5px;
+      cursor: pointer;
+    } 
+  </style>
+</head>
+
+<body>
+  <button class="gaming-button" onclick="
+    toggle();
+  ">Gaming</button>
+
+  <script>
+    let gamingButton = document.querySelector('.gaming-button');
+
+    function toggle () {
+      if (gamingButton.classList.contains('gaming-button-on')) {
+        gamingButton.classList.remove('gaming-button-on');
+      } else {
+        gamingButton.classList.add('gaming-button-on');
+      }
+    }
+  </script>
+</body>
+
+</html>
