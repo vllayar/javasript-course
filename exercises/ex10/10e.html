@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HTML, CSS & JavaScript</title>
+  <style>
+    .button {
+      background-color: rgba(128, 128, 128, 0.15);
+      font-weight: bold;
+      border: none;
+      padding: 10px 14px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .button-on {
+      background-color: rgba(0, 0, 0, 0.835);
+      color: white;
+      font-weight: bold;
+      border: none;
+      padding: 10px 14px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+  <button class="gaming-button button" onclick="
+    toggle('gaming-button');
+  ">Gaming</button>
+
+  <button class="music-button button" onclick="
+    toggle('music-button');
+  ">Music</button>
+
+  <button class="tech-button button" onclick="
+    toggle('tech-button');
+  ">Tech</button>
+
+  <script>
+    function toggle(button) {
+      if (document.querySelector(`.${button}`).classList.contains('button-on')) {
+        document.querySelector(`.${button}`).classList.remove('button-on');
+      } else {
+        document.querySelector(`.${button}`).classList.add('button-on');
+      }
+    }
+  </script>
+</body>
+
+</html>
